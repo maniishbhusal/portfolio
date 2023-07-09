@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lato&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    /* font-weight: 400; */
+}
+
+.nav-link:hover{
+    color: #FFC107;
+}
+
+.button{
+    background-color: #FFC107;
+    font-size: 1.3rem;
+    padding:0.5rem 1.5rem;
+    width: 9rem;
+    border-radius: 30px;
+
+}
+
+.button:hover{
+    background-color: #6f34fe;
+    color: white;
+}
+
+.landing-page{
+    height: 89vh;
+    background-color: #ECF8FF;
+}
+
+.manish{
+    color: #6f34fe;
+    font-size: 4rem;
+}
+
+.social_icons{
+    font-size: 2rem !important;
+    color: black;
+    margin-top: 2rem;
+}
+
+.social_icons:hover{
+    color: #6f34fe;
+    
+}
+
+.see_my_work{
+    font-size: 1.5rem;
+}
+
+.see_my_work:hover{
+    color: #FFC107;
+}

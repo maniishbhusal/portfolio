@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Manish - Home{% endblock title %}
+
+{% block content %}
+<!-- Landing Page Start -->
+<div class="landing-page">
+    {% include 'navbar.html' %}
+  
+    <div class="container-fluid mt-4">
+      <div class="row" style="margin-top: -50px;">
+        <div class="col-3 d-flex flex-column justify-content-center align-items-center" style="margin-left:-5rem;">
+          <a href=""><span><i class="social_icons fa-brands fa-github fa-2xl"></i></span></a>
+          <a href=""><span><i class="social_icons fa-brands fa-linkedin-in fa-2xl"></i></span></a>
+          <a href=""><span><i class="social_icons fa-brands fa-facebook fa-2xl"></i></span></a>
+        </div>
+        <div class="col-4 d-flex flex-column align-items-start justify-content-center">
+          <h3>Hello, I Am</h3>
+          <h1 class="fw-bold manish">Manish Bhusal</h1>
+          <p class="fs-5">I'm a versatile web developer with experience in
+            HTML, CSS, JavaScript, Bootstrap, and Python's
+            Django framework. I have a knack for creating
+            attractive and user-friendly websites.</p>
+          <div class="d-flex align-items-center">
+          <a href="" class="button btn">Hire Me</a>
+          <a href="" class="see_my_work ms-3">See My Work</a>
+        </div>
+        </div>
+        <div class="col-5 d-flex justify-content-center align-items-center">
+          <img src="{% static 'img/manish.png' %}" class="img-fluid" alt="Manish Image" style="margin-left: -15rem;">
+        </div>
+      </div>    
+    </div>
+  </div>
+<!-- Landing Page End -->
+
+
+{% endblock content %}
+
+
