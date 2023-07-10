@@ -1,60 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lato&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lato&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
-body{
-    font-family: 'Josefin Sans', sans-serif;
-    /* font-weight: 400; */
+body {
+  font-family: "Josefin Sans", sans-serif;
+  /* font-weight: 400; */
 }
 
-.nav-link:hover{
-    color: #FFC107;
+.nav-link:hover {
+  color: #ffc107;
 }
 
-.button{
-    background-color: #FFC107;
-    font-size: 1.3rem;
-    padding:0.5rem 1.5rem;
-    width: 9rem;
-    border-radius: 30px;
-
+.navbar-white {
+  background-color: #ffffff;
+  height: 7rem;
 }
 
-.button:hover{
-    background-color: #6f34fe;
-    color: white;
+.button {
+  background-color: #ffc107;
+  font-size: 1.3rem;
+  padding: 0.5rem 1.5rem;
+  width: 9rem;
+  border-radius: 30px;
 }
 
-.landing-page{
-    height: 89vh;
-    background-color: #ECF8FF;
+.button:hover {
+  background-color: #6f34fe;
+  color: white;
 }
 
-.manish{
+.landing-page {
+  height: 95vh;
+  background-color: #ecf8ff;
+}
+
+.manish {
+  color: #6f34fe;
+  font-size: 4rem;
+}
+
+.social_icons {
+  /* font-size: 2rem !important; */
+  color: black;
+  margin-top: 2rem;
+}
+
+.social_icons:hover {
+  color: #6f34fe;
+}
+
+.portfolio {
+  height: 90vh;
+  background-color: #fffcfc;
+  /* margin-top: 5rem; */
+}
+
+.see_my_work {
+  font-size: 1.5rem;
+}
+
+.see_my_work:hover {
+  color: #ffc107;
+}
+
+.main_letter {
+  font-size: 3.5rem;
+  font-weight: bolder;
+}
+
+.icons_portfolio {
+  font-size: 2.5rem !important;
+  /* padding: 2.8rem; */
+  color: white;
+  background-color: #6f34fe;
+  border-radius: 80px;
+}
+
+img {
+  border-radius: 25px !important;
+}
+
+.card{
+    border-radius: 2.3rem;
+}
+
+.blog_and_articles{
+    height: 95vh;
+    /* background-color: #F2F2FF; */
+}
+
+.blog_and_project_title{
+    font-size: 1.4rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+
+.read_more{
     color: #6f34fe;
-    font-size: 4rem;
 }
 
-.social_icons{
-    font-size: 2rem !important;
-    color: black;
-    margin-top: 2rem;
+.read_more:hover{
+    color: #ffc107;
 }
 
-.social_icons:hover{
+.footer{
+    /* background-color: #ecf8ff; */
+    padding: 2rem;
+    /* margin-top: 3rem; */
+}
+
+.footer_social_icons a{
+    font-size: 1rem !important;
+    margin-left: 0.7rem;
+    color: black;   
+}
+
+.footer_social_icons a:hover{
     color: #6f34fe;
-    
-}
-
-.see_my_work{
-    font-size: 1.5rem;
-}
-
-.see_my_work:hover{
-    color: #FFC107;
 }
