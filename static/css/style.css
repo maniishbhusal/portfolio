@@ -20,6 +20,7 @@ body {
 .navbar-white {
   background-color: #ffffff;
   height: 7rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.089);
 }
 
 .button {
@@ -35,8 +36,8 @@ body {
   color: white;
 }
 
-.landing-page {
-  height: 95vh;
+.landing_page {
+  height: 95%;
   background-color: #ecf8ff;
 }
 
@@ -86,41 +87,50 @@ img {
   border-radius: 25px !important;
 }
 
-.card{
-    border-radius: 2.3rem;
+.card {
+  border-radius: 2.3rem;
 }
 
-.blog_and_articles{
-    height: 95vh;
-    /* background-color: #F2F2FF; */
+.blog_and_articles {
+  height: 95vh;
+  /* background-color: #F2F2FF; */
 }
 
-.blog_and_project_title{
-    font-size: 1.4rem;
-    font-weight: bolder;
-    margin-bottom: 0;
+.blog_and_project_title {
+  font-size: 1.4rem;
+  font-weight: bolder;
+  margin-bottom: 0;
 }
 
-.read_more{
-    color: #6f34fe;
+.read_more {
+  color: #6f34fe;
 }
 
-.read_more:hover{
-    color: #ffc107;
+.read_more:hover {
+  color: #ffc107;
 }
 
-.footer{
-    /* background-color: #ecf8ff; */
-    padding: 2rem;
-    /* margin-top: 3rem; */
+.footer {
+  /* background-color: #ecf8ff; */
+  padding: 2rem;
+  /* margin-top: 3rem; */
 }
 
-.footer_social_icons a{
-    font-size: 1rem !important;
-    margin-left: 0.7rem;
-    color: black;   
+.footer_social_icons a {
+  font-size: 1rem !important;
+  margin-left: 0.7rem;
+  color: black;
 }
 
-.footer_social_icons a:hover{
-    color: #6f34fe;
+.footer_social_icons a:hover {
+  color: #6f34fe;
+}
+
+.about_p {
+  width: 60rem;
+}
+
+.blogs_section {
+  height: 100%;
+  margin-top: 6rem;
 }

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blogs - ManishBhusal{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<!-- Blog and Articles Start -->
+
+<div class="blog_and_articles d-flex align-items-center" style="height:100%; margin-top:6rem;">
+    <div class="container d-flex flex-column align-items-center pt-5 mt-2">
+      <h2>Popular Blogs</h2>
+      <h1 class="main_letter">Blog & Articles</h1>
+      <div class="row mt-5 p-1">
+        <div class="col-md-4">
+          <div class="card p-2">
+            <img src="{% static 'img/manish_icon.jpg' %}" class="img-fluid" alt="">
+            <div class="card-body">
+              <div class="d-flex justify-content-between my-2">
+                <span>By Manish Bhusal</span>
+                <span>Mar 8, 2024</span>
+              </div>
+              <h1 class="blog_and_project_title">Web Project</h1>
+              <p class="card-text">Lorem ipsum dolor sit, amet adipisci?.</p>
+              <a href="" class="read_more">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 p-5">
+          <div class="card p-2">
+            <img src="{% static 'img/manish.png' %}" class="img-fluid" alt="">
+            <div class="card-body">
+              <div class="d-flex justify-content-between my-2">
+                <span>By Manish Bhusal</span>
+                <span>Mar 8, 2024</span>
+              </div>
+              <h1 class="blog_and_project_title">This is a new project</h1>
+              <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, .</p>
+              <a href="" class="read_more">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-2">
+            <img src="{% static 'img/manish.png' %}" class="img-fluid" alt="">
+            <div class="card-body">
+              <div class="d-flex justify-content-between my-2">
+                <span>By Manish Bhusal</span>
+                <span>Mar 8, 2024</span>
+              </div>
+              <h1 class="blog_and_project_title">Web Project</h1>
+              <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, .</p>
+              <a href="" class="read_more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Blog and Articles End -->
+  
+  <hr>
+  
+  <!--Footer Start-->
+  {% include 'footer.html' %}
+  
+  <!--Footer Start-->
+  
+
+{% endblock content %}

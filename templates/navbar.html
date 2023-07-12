@@ -8,16 +8,16 @@
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto me-auto px-5">
               <li class="nav-item">
-                <a href="#" class="nav-link fs-5" area-current="page">Home</a>
+                <a href="{% url 'home' %}" class="nav-link fs-5" area-current="page">Home</a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link mx-2 fs-5">About</a>
+                <a href="{% url 'about' %}" class="nav-link mx-2 fs-5">About</a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link fs-5">Portfolio</a>
+                <a href="{% url 'portfolio' %}" class="nav-link fs-5">Portfolio</a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link mx-2 fs-5">Blog</a>
+                <a href="{% url 'blogs_page' %}" class="nav-link mx-2 fs-5">Blogs</a>
               </li>
               <li class="nav-item">
                 <a href="" class="button btn">Contact</a>

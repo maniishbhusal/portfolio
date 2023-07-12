@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About - ManishBhusal{% endblock title %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<!--About Page Start-->
+
+<div class="landing_page">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center ms-5 p-5" style="height:58rem">
+            <div>
+                <img src="{% static 'img/manish_about.jpg' %}" class="mt-5" alt="ManishBhusal" style="width:25rem;">
+            </div>
+            <div class="mx-5 p-2">
+                <h1 class="main_letter text-center">About Me</h1>
+                <p class="fs-5 about_p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur repellat
+                    quis at, deleniti fugit tenetur iusto vitae odit, commodi eos tempore maxime consequatur ab
+                    perferendis ipsam veniam sunt. Ut ratione molestias ducimus voluptatum dignissimos repellat
+                    reprehenderit eveniet at eum explicabo cumque cum molestiae amet quas similique quo, earum
+                    quibusdam. Nobis, aperiam facilis minus laudantium quibusdam eum nulla illum consectetur, itaque
+                    quas quod similique illo modi repudiandae ab cumque odit omnis in voluptatum? Magni, mollitia
+                    consequuntur? Reprehenderit blanditiis nemo qui? Sequi nihil minima odit inventore nesciunt itaque
+                    quos. Nam repellendus ipsum doloremque asperiores, at, aliquid eligendi exercitationem velit illo
+                    accusamus assumenda? r, sit amet consectetur adipisicing elit. Consequuntur repellat quis at,
+                    deleniti fugit tenetur iusto vitae odit, commodi eos tempore maxime consequatur ab perferendis ipsam
+                    veniam sunt. Ut ratione molestias ducimus voluptatum dignissimos repellat reprehenderit eveniet at
+                    eum explicabo cumque cum molestiae amet quas similique quo, earum quibusdam. Nobis, aperiam facilis
+                    minus laudantium quibusdam eum nulla illum consectetur, itaque quas quod similique illo </p>
+                <p class="fs-5 about_p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque excepturi libero
+                    quisquam temporibus odio distinctio earum ab qui aspernatur numquam!</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% include 'footer.html' %}
+</div>
+
+<!--About Page End-->
+
+
+{% endblock content %}
