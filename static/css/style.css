@@ -37,9 +37,32 @@ body {
 }
 
 .landing_page {
+  position: relative;
   min-height: 57vh;
   background-color: #ecf8fff3;
 }
+
+/* Shape Divider App CSS Start */
+.custom-shape-divider-bottom-1689356816 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1689356816 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 44px;
+}
+
+.custom-shape-divider-bottom-1689356816 .shape-fill {
+  fill: #FFFFFF;
+}
+/* Shape Divider App CSS End  */
 
 .manish {
   color: #6f34fe;
@@ -91,10 +114,10 @@ img {
   border-radius: 2.3rem;
 }
 
-.blog_and_articles {
+/* .blog_and_articles { */
   /* height: 95vh; */
   /* background-color: #F2F2FF; */
-}
+/* } */
 
 .blog_and_project_title {
   font-size: 1.4rem;
