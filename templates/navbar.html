@@ -1,30 +1,43 @@
 <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container mt-4">
-      <div class="row justify-content-between">
-        <div class="col-md-2">
-          <a href="#" class="navbar-brand fs-2">Manish</a>
-        </div>
-        <div class="col-md-6">
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto me-auto px-5">
-              <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link fs-5" area-current="page">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'about' %}" class="nav-link mx-2 fs-5">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'portfolio' %}" class="nav-link fs-5">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'blogs_page' %}" class="nav-link mx-2 fs-5">Blogs</a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="button btn">Contact</a>
-              </li>
-            </ul>
-          </div>
+  <div class="container mt-4">
+    <div class="row justify-content-between">
+      <div class="col-md-2">
+        <a href="{% url 'home' %}" class="navbar-brand fs-2">Manish</a>
+      </div>
+      <div class="col-md-6">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto me-auto px-5">
+            <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link fs-5" area-current="page">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'about' %}" class="nav-link mx-2 fs-5">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'portfolio' %}" class="nav-link fs-5">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'blogs_page' %}" class="nav-link mx-2 fs-5">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'contact' %}" class="button btn">Contact</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<!--Messages-->
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+    <strong>Message: </strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
+  {% endfor %}
+</ul>
+{% endif %}

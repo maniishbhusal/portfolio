@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Blogify{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="d-flex flex-column justify-content-center align-items-center" style="height: calc(90vh - 100px);">
+    <h1 class="text-center main_letter">Contact Us</h1>
+    <div class="col-lg-4">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-3 p-1">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required
+                    style="padding: 10px;">
+            </div>
+            <div class="form-group mb-3 p-1">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required
+                    style="padding: 10px;">
+            </div>
+            <div class="form-group mb-3 p-1">
+                <label for="message">Your Message</label>
+                <textarea class="form-control" id="message" rows="3" name="message" placeholder="Enter your message"
+                    required style="padding: 10px;"></textarea>
+            </div>
+            <button type="submit" class="button btn">Submit</button>
+        </form>
+    </div>
+</div>
+<hr>
+{% include 'footer.html' %}
+{% endblock content %}
