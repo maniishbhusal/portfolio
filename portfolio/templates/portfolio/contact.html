@@ -7,7 +7,7 @@
 <div class="d-flex flex-column justify-content-center align-items-center" style="height: calc(90vh - 100px);">
     <h1 class="text-center main_letter">Contact Us</h1>
     <div class="col-lg-4">
-        <form action="" method="POST">
+        <form action="{% url 'contact' %}" method="POST">
             {% csrf_token %}
             <div class="form-group mb-3 p-1">
                 <label for="name">Your Name</label>

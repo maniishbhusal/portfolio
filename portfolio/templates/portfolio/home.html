@@ -20,19 +20,21 @@
       </div>
       <div class="col-4 d-flex flex-column align-items-start justify-content-center">
         <h3>Hello, I Am</h3>
-        <h1 class="fw-bold manish">Manish Bhusal</h1>
+        <h1 class="fw-bold manish"><span class="letter_typed"></span></h1>
+        <h1 class="fw-bold manish"></h1>
+        <h1 class="fw-bold manish"></h1>
         <p class="fs-5">I'm a versatile web developer with experience in
           HTML, CSS, JavaScript, Bootstrap, and Python's
           Django framework. I have a knack for creating
           attractive and user-friendly websites.</p>
         <div class="d-flex align-items-center">
-          <a href="{% url 'blogs_page' %}" class="button btn">Hire Me</a>
+          <a href="{% url 'contact' %}" class="button btn">Hire Me</a>
           <a href="{% url 'portfolio' %}" class="see_my_work ms-3">See My Work</a>
         </div>
       </div>
       <div class="col-5 d-flex justify-content-center align-items-center">
         <img src="{% static 'img/manish.png' %}" class="img-fluid" alt="Manish Image"
-          style="margin-left: -15rem; margin-top:8rem;">
+          style="margin-left: -10rem; margin-top:8rem;">
       </div>
     </div>
   </div>
@@ -44,7 +46,7 @@
 <!-- Portfolio Starts -->
 
 <div class="portfolio">
-  <div class="container d-flex align-items-center flex-column pt-5 mt-2" style="height:100%;">
+  <div class="container d-flex align-items-center flex-column pt-5 mt-2" style="height:90%;">
     <h2>Creative Works</h2>
     <h1 class="main_letter">Check My Portfolio</h1>
 
@@ -70,15 +72,15 @@
 
     <a href="{% url 'portfolio' %}"" class=" btn button mt-5" style="width:14rem;">See More Projects</a>
   </div>
+  <hr>
 </div>
 <!-- Portfolio Starts -->
 
-<hr>
 
 <!-- Blog and Articles Start -->
 
-<div class="blog_and_articles" style="height:100%;%">
-  <div class="container d-flex flex-column align-items-center pt-5 mt-2">
+<div class="blog_and_articles" style="height:100%;">
+  <div class="container d-flex flex-column align-items-center pt-3">
     <h2 style="color:#6f34fe">Popular Blogs</h2>
     <h1 class="main_letter">Blog & Articles</h1>
     <div class="row mt-5 p-1">
@@ -99,7 +101,7 @@
       </div>
       {% endfor %}
     </div>
-    <a href="{% url 'blogs_page' %}"" class=" btn button mt-5" style="width:14rem;">See More Blogs</a>
+    <a href="{% url 'blogs_page' %}"" class=" btn button mt-2" style="width:14rem;">See More Blogs</a>
   </div>
 </div>
 <br>

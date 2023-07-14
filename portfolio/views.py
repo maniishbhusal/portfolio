@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import Portfolio, Blog, Contact
 
@@ -51,5 +51,6 @@ def contact(request):
 
         Contact.objects.create(name=name, email=email, message=message)
         messages.success(request, 'Your message has been sent successfully')
+        return redirect('contact')
 
     return render(request, 'portfolio/contact.html')
