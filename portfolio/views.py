@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def home(request):
-    portfolio_lists = Portfolio.objects.all()[:3]
+    portfolio_lists = Portfolio.objects.all().order_by('-created_at')[:3]
     blog_lists = Blog.objects.all().order_by('-created_at')[:3]
     context = {
         'portfolio_lists': portfolio_lists,
