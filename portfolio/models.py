@@ -1,5 +1,7 @@
 from django.db import models
 from tinymce.models import HTMLField
+from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -33,3 +35,13 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class BlogComment(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField()
+    created_at = models.DateTimeField(default=now)
+
+    def __str__(self):
+        return self.comment

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
-from .models import Portfolio, Blog, Contact
+from .models import Portfolio, Blog, Contact,BlogComment
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -39,8 +39,12 @@ def blogs_page(request):
 
 def detailed_blog(request, slug):
     blog = Blog.objects.get(slug=slug)
+    comments=BlogComment.objects.filter(blog=blog).order_by('-created_at')
+    comment_count=comments.count()
     context = {
         'blog': blog,
+        'comments':comments,
+        'comment_count':comment_count,
     }
     return render(request, 'portfolio/detailed_blog.html', context)
 
@@ -143,3 +147,22 @@ def user_logout(request):
     messages.success(request, 'Logout Successful')
     # return redirect('home')
     return redirect(request.GET.get('next', 'home'))
+
+def post_comment(request):
+    if request.method == "POST":
+        # Get the comments submitted by the user
+        comment = request.POST.get("comment")
+        user = request.user
+        blog_id = request.POST.get("blog_id")
+        blog = Blog.objects.get(id=blog_id)
+
+        # Create a new comment
+        comment = BlogComment.objects.create(comment=comment, user=user, blog=blog)
+        comment.save()
+        messages.success(request, "Your comment has been posted successfully")
+
+        # Redirect the user to the blog page
+        return redirect('detailed_blog', slug=blog.slug)
+
+    # Return an HTTP response with the message "Page not found" if the request method is not 'POST'
+    return render(request, 'portfolio/404_error.html')

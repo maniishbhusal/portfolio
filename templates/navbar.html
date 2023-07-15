@@ -43,15 +43,17 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav px-5" style="margin-left:8rem;">
             <li class="nav-item">
-                <!-- Default dropend button -->
-                <div class="dropdown">
-                  <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    @{{ request.user }}
-                  </button>
-                  <ul class="dropdown-menu" style="background-color:#ecf8fff3;">
-                    <li><a href="{% url 'user_logout' %}?next={{ request.path }}?next={{ request.path }}" class="btn dropdown-item" type="button">Logout</a></li>
-                  </ul>
-                </div>
+              <!-- Default dropend button -->
+              <div class="dropdown">
+                <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  @{{ request.user }}
+                </button>
+                <ul class="dropdown-menu" style="background-color:#ecf8fff3;">
+                  <li><a href="{% url 'user_logout' %}?next={{ request.path }}?next={{ request.path }}"
+                      class="btn dropdown-item" type="button">Logout</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
@@ -93,7 +95,8 @@
           </div>
           <div class="form-group my-3 mx-2">
             <label for="password">Password:</label>
-            <input type="password" class="form-control p-2" name="password" id="password" placeholder="Enter a password">
+            <input type="password" class="form-control p-2" name="password" id="password"
+              placeholder="Enter a password">
           </div>
           <button type="submit" class="btn button_login_signup my-2 mx-2 fs-5">Login</button>
         </form>
@@ -120,20 +123,23 @@
           </div>
           <div class="form-group my-3 mx-2">
             <label for="username">Username:</label>
-            <input type="text" class="form-control p-2" name="username" id="username" placeholder="Enter a username" required>
+            <input type="text" class="form-control p-2" name="username" id="username" placeholder="Enter a username"
+              required>
           </div>
           <div class="form-group my-3 mx-2">
             <label for="email">Email:</label>
-            <input type="email" class="form-control p-2" name="email" id="email" placeholder="Enter your email" required>
+            <input type="email" class="form-control p-2" name="email" id="email" placeholder="Enter your email"
+              required>
           </div>
           <div class="form-group my-3 mx-2">
             <label for="password">Password:</label>
-            <input type="password" class="form-control p-2" name="password" id="password" placeholder="Enter a password" required>
+            <input type="password" class="form-control p-2" name="password" id="password" placeholder="Enter a password"
+              required>
           </div>
           <div class="form-group my-3 mx-2">
             <label for="confirm-password">Confirm Password:</label>
             <input type="password" class="form-control p-2" name="confirm_password" id="confirm-password"
-             placeholder="Confirm your password" required>
+              placeholder="Confirm your password" required>
           </div>
           <button type="submit" class="btn button_login_signup my-2 mx-2 fs-5">Signup</button>
         </form>
@@ -142,5 +148,3 @@
   </div>
 </div>
 <!-- Modal For Signup End -->
-
-

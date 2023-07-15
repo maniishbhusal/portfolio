@@ -50,6 +50,17 @@ body {
     color: black;
 }
 
+.btn_comment{
+  color: #6f34fe;
+  font-size: 1.7rem;
+  border: none;
+  margin-top: 1.8rem;
+}
+
+.btn_comment:hover,a{
+  color: #747168;
+}
+
 .landing_page {
   position: relative;
   min-height: 57vh;
@@ -192,4 +203,13 @@ img {
   transform: translateX(-50%);
   /* width: 350px; */
   z-index: 9999;
+}
+
+.avatar{
+  position: absolute;
+  width: 3rem;
+  /* border-radius: 50%; */
+  left: -3.9rem;
+  top: 0.8rem;
+
 }
