@@ -86,13 +86,13 @@ def signup(request):
                 messages.info(request, 'Username already exists')
 
                 # Redirect the user to the 'home' page
-                return redirect('home')
+                return redirect(request.GET.get('next', 'home'))
             elif User.objects.filter(email=email).exists():
                 # Add an information message to the current request
                 messages.info(request, 'Email already exists')
 
                 # Redirect the user to the 'home' page
-                return redirect('home')
+                return redirect(request.GET.get('next', 'home'))
             else:
                 # Create a new User object with the provided data
                 user = User.objects.create_user(
@@ -105,12 +105,12 @@ def signup(request):
                 messages.success(request, 'User created successfully')
 
                 # Redirect the user to the 'home' page
-                return redirect('home')
+                return redirect(request.GET.get('next', 'home'))
 
         else:
             # Add an information message to the current request
             messages.info(request, 'Password not matching')
-            return redirect('home')
+            return redirect(request.GET.get('next', 'home'))
 
     # Return an HTTP response with the message "Page not found" if the request method is not 'POST'
     return render(request, 'portfolio/404_error.html')
@@ -128,11 +128,11 @@ def user_login(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Login Successful')
-            return redirect('home')
+            return redirect(request.GET.get('next', 'home'))
         # If the user is not authenticated, display an error message and redirect to the home page
         else:
             messages.info(request, 'Invalid Credentials')
-            return redirect('home')
+            return redirect(request.GET.get('next', 'home'))
 
     # If the request method is not 'POST', render the 404 error page
     return render(request, 'portfolio/404_error.html')
@@ -141,4 +141,5 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     messages.success(request, 'Logout Successful')
-    return redirect('home')
+    # return redirect('home')
+    return redirect(request.GET.get('next', 'home'))

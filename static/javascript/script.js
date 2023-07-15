@@ -22,7 +22,6 @@ var typed = new Typed('.letter_typed', {
   loop: true,
 });
 
-
 // Get the element with the class "alert"
 var message = document.querySelector('.alert');
 
@@ -32,7 +31,7 @@ if (message) {
   message.style.display = 'block';
 
   // Set a timeout function to hide the message after 5000 milliseconds (5 seconds)
-  setTimeout(() => {
+  setTimeout(function() {
     message.style.display = 'none';
   }, 5000);
 }
