@@ -36,6 +36,20 @@ body {
   color: white;
 }
 
+.button_login_signup{
+  background-color: #6f34fe;
+  color: white;
+  font-size: 1.3rem;
+  padding: 0.5rem 1.5rem;
+  width: 7rem;
+  border-radius: 30px;
+}
+
+.button_login_signup:hover{
+    background-color: #ffc107;
+    color: black;
+}
+
 .landing_page {
   position: relative;
   min-height: 57vh;
@@ -173,10 +187,9 @@ img {
 
 .alert {
   position: fixed;
-  top: 1;
-  right: 14px;
-  /* left: 50%;
-  transform: translateX(-50%); */
-  /* left: 11; */
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* width: 350px; */
   z-index: 9999;
 }

@@ -21,3 +21,18 @@ var typed = new Typed('.letter_typed', {
   startDelay: 300,
   loop: true,
 });
+
+
+// Get the element with the class "alert"
+var message = document.querySelector('.alert');
+
+// Check if the element exists
+if (message) {
+  // Display the message by setting its display property to "block"
+  message.style.display = 'block';
+
+  // Set a timeout function to hide the message after 5000 milliseconds (5 seconds)
+  setTimeout(() => {
+    message.style.display = 'none';
+  }, 5000);
+}

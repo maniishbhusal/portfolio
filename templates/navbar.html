@@ -25,17 +25,120 @@
           </ul>
         </div>
       </div>
+      {% if user.is_authenticated %}
+
+      <div class="col-md-1">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav px-5" style="margin-left:8rem;">
+            <li class="nav-item">
+                <!-- Default dropend button -->
+                <div class="dropdown">
+                  <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @{{ request.user }}
+                  </button>
+                  <ul class="dropdown-menu" style="background-color:#ecf8fff3;">
+                    <li><a href="{% url 'user_logout' %}" class="btn dropdown-item" type="button">Logout</a></li>
+                  </ul>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% else %}
+      <div class="col-md-2">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto me-auto px-5">
+            <li class="nav-item">
+              <button type="button" class="btn button_login_signup" data-bs-toggle="modal"
+                data-bs-target="#loginModal">Login</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn button_login_signup mx-3" data-bs-toggle="modal"
+                data-bs-target="#signupModal">Signup</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
 </nav>
 
+<!-- Modal For Login Start -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Login Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'user_login' %}" method="post" autocomplete="off">
+          {% csrf_token %}
+          <div class="form-group mx-2">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control p-2" name="username" id="username" placeholder="Enter a username">
+          </div>
+          <div class="form-group my-3 mx-2">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control p-2" name="password" id="password" placeholder="Enter a password">
+          </div>
+          <button type="submit" class="btn button_login_signup my-2 mx-2 fs-5">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal For Login End -->
+
+<!-- Modal For Signup Start -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="signupModalLabel">Signup Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'signup' %}" method="post" autocomplete="off">
+          {% csrf_token %}
+          <div class="form-group mx-2">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control p-2" name="name" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group my-3 mx-2">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control p-2" name="username" id="username" placeholder="Enter a username" required>
+          </div>
+          <div class="form-group my-3 mx-2">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control p-2" name="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group my-3 mx-2">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control p-2" name="password" id="password" placeholder="Enter a password" required>
+          </div>
+          <div class="form-group my-3 mx-2">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" class="form-control p-2" name="confirm_password" id="confirm-password"
+             placeholder="Confirm your password" required>
+          </div>
+          <button type="submit" class="btn button_login_signup my-2 mx-2 fs-5">Signup</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal For Signup End -->
+
+
 <!--Messages-->
 {% if messages %}
-  {% for message in messages %}
-  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-    <strong>Message: </strong> {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-  {% endfor %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message: </strong> {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+</div>
+{% endfor %}
 {% endif %}
