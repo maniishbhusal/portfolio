@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .models import Portfolio, Blog, Contact,BlogComment
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -48,6 +48,16 @@ def detailed_blog(request, slug):
     }
     return render(request, 'portfolio/detailed_blog.html', context)
 
+
+def delete_blog(request, slug):
+    blog = Blog.objects.get(slug=slug)
+    if request.user.has_perm("portfolio.delete_blog"):
+        blog.delete()
+        messages.success(request, 'Blog deleted successfully')
+        return redirect('blogs_page')
+    else:
+        messages.error(request, 'Cannot delete blog.')
+        return redirect('blogs_page')
 
 def contact(request):
     if request.method == 'POST':

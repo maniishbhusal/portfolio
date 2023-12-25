@@ -24,7 +24,29 @@
             </div>
             <h1 class="blog_and_project_title">{{ blog.title }}</h1>
             <p class="card-text">{{ blog.description|safe|truncatewords:15 }}</p>
+            <div class="d-flex justify-content-between">
             <a href="{% url 'detailed_blog' blog.slug %}" class="read_more">Read More</a>
+            {% if perms.portfolio.change_blog %}
+            {% if perms.portfolio.delete_blog %}
+                <!-- User can change and delete blogs -->
+                <span>
+                    <a href="" class="btn btn-success">Update</a>
+                    <a href="{% url 'delete_blog' blog.slug %}" class="btn btn-danger">Delete</a>
+                </span>
+            {% else %}
+                <!-- User can only change blogs -->
+                <span>
+                    <a href="" class="btn btn-success">Update</a>
+                </span>
+            {% endif %}
+        {% elif perms.portfolio.delete_blog %}
+            <!-- User can only delete blogs -->
+            <span>
+                <a href="{% url 'delete_blog' blog.slug %}" class="btn btn-warning">Delete</a>
+            </span>
+        {% endif %}
+        
+            </div>
           </div>
         </div>
       </div>
