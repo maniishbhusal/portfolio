@@ -1,11 +1,16 @@
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
-from .models import Portfolio, Blog, Contact,BlogComment
+from .models import Portfolio, Blog, Contact, BlogComment
 from django.contrib.auth.models import User, Permission
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import permission_required
+from django.shortcuts import get_object_or_404
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.decorators import login_required
+from .forms import UpdateBlogForm
 
 
-# Create your views here.
 def home(request):
     portfolio_lists = Portfolio.objects.all().order_by('-created_at')[:3]
     blog_lists = Blog.objects.all().order_by('-created_at')[:3]
@@ -39,25 +44,46 @@ def blogs_page(request):
 
 def detailed_blog(request, slug):
     blog = Blog.objects.get(slug=slug)
-    comments=BlogComment.objects.filter(blog=blog).order_by('-created_at')
-    comment_count=comments.count()
+    comments = BlogComment.objects.filter(blog=blog).order_by('-created_at')
+    comment_count = comments.count()
     context = {
         'blog': blog,
-        'comments':comments,
-        'comment_count':comment_count,
+        'comments': comments,
+        'comment_count': comment_count,
     }
     return render(request, 'portfolio/detailed_blog.html', context)
 
 
+@login_required(login_url='user_login')
+def update_blog(request, slug):
+    blog = get_object_or_404(Blog, slug=slug)
+
+    # Check if the user has permission to update the blog
+    if request.user == blog.user or request.user.has_perm('portfolio.change_blog'):
+        if request.method == 'POST':
+            form = UpdateBlogForm(request.POST, request.FILES, instance=blog)
+            if form.is_valid(): 
+                form.save()
+                messages.success(request, 'Blog updated successfully')
+                return redirect('blogs_page')
+        else:
+            form = UpdateBlogForm(instance=blog)
+            return render(request, 'portfolio/update_blog.html', {'form': form, 'blog': blog})
+    else:
+        return HttpResponseForbidden('You are not authorized to update this blog')
+
+
+@login_required(login_url='user_login')
 def delete_blog(request, slug):
-    blog = Blog.objects.get(slug=slug)
-    if request.user.has_perm("portfolio.delete_blog"):
+    blog = get_object_or_404(Blog, slug=slug)
+    # Check if the user has permission to delete the blog
+    if request.user == blog.user or request.user.has_perm('portfolio.delete_blog'):
         blog.delete()
         messages.success(request, 'Blog deleted successfully')
-        return redirect('blogs_page')
     else:
-        messages.error(request, 'Cannot delete blog.')
-        return redirect('blogs_page')
+        return HttpResponseForbidden('You are not authorized to delete this blog')
+    return redirect('blogs_page')
+
 
 def contact(request):
     if request.method == 'POST':
@@ -158,6 +184,7 @@ def user_logout(request):
     # return redirect('home')
     return redirect(request.GET.get('next', 'home'))
 
+
 def post_comment(request):
     if request.method == "POST":
         # Get the comments submitted by the user
@@ -167,7 +194,8 @@ def post_comment(request):
         blog = Blog.objects.get(id=blog_id)
 
         # Create a new comment
-        comment = BlogComment.objects.create(comment=comment, user=user, blog=blog)
+        comment = BlogComment.objects.create(
+            comment=comment, user=user, blog=blog)
         comment.save()
         messages.success(request, "Your comment has been posted successfully")
 
