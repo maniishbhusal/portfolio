@@ -10,6 +10,14 @@ The website showcases the portfolio of a web developer and includes features suc
 * **Contact Page**: Allows visitors to get in touch with the developer by submitting a contact form.
 * **User Authentication**: Users can sign up, log in, and log out. Logged-in users have the ability to post comments on blog articles.
 
+### User Groups
+To enhance the user management system, two additional groups have been introduced:
+* **Manager Group**: Members of this group have the authority to delete and update any blog articles.
+* **Editor Group**: Members of this group can update any blog articles but cannot delete them.
+
+### Individual User Permissions
+* **Current Logged-In User**: The user who is currently logged in has the ability to edit or delete their own blog posts.
+
   ## Installation
 
 1. Clone the repository: `git clone https://github.com/manish-bhusal/portfolio.git`
